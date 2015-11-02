@@ -1,0 +1,35 @@
+//
+//  PrefixHeader.pch
+//  XBWaterFlow
+//
+//  Created by Mac on 15/11/2.
+//  Copyright (c) 2015年 Moobye. All rights reserved.
+//
+
+#ifndef XBWaterFlow_PrefixHeader_pch
+#define XBWaterFlow_PrefixHeader_pch
+
+
+#pragma mark - 类扩展
+#include "UIView+Extension.h"
+
+
+#pragma mark - log分阶段调试
+#ifdef DEBUG // 处于开发阶段
+#define XBLog(...) NSLog(__VA_ARGS__)
+#else // 处于发布阶段
+#define XBLog(...)
+#endif
+// 打印方法名 行数
+#define XBLogTestMethod XBLog(@"Function %s on line %d",__FUNCTION__,__LINE__)
+
+#pragma mark - 颜色
+// 颜色
+#define XBColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+#define XBColorRGBA(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)/255.0]
+
+// 随机色
+#define XBRandomColorRGBA XBColorRGBA(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256), 255)
+
+
+#endif
